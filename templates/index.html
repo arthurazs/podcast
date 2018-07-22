@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+
+{% block content %}
+    {% for entry in rows %}
+    <br>
+    <div class="row">
+
+        <div class="col-3">
+            <img class="mr-3 img-thumbnail rounded" src="{{ entry['image'] }}" alt="{{ entry['title'] }}">
+        </div>
+        <div class="col">
+            <a href="{{ entry['link'] }}" target="_blank"><h5 class="mt-0">{{ entry['title'] }}</h5></a>
+            {{ entry['description'] }}
+
+            <br>
+            <br>
+
+            <audio controls>
+                  <source src="{{ entry['mp3'] }}" type="audio/mpeg">
+                {{ entry['mp3'] }}
+            </audio>
+        </div>
+
+    </div>
+    {% endfor %}
+    <br>
+{% endblock %}

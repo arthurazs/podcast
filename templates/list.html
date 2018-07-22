@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+
+{% block content %}
+    <div class="card-columns">
+        {% for entry in rows %}
+
+        <div class="card">
+            <img class="card-img-top" src="{{ entry['image']}}" alt="Card image cap">
+
+            <div class="card-body">
+                <h5 class="card-title">{{ entry['name'] }}</h5>
+                <p class="card-text">{{ entry['description'] }}</p>
+                <a href="{{ url_for('home', name=entry['name']) }}" class="btn btn-primary">Ver</a>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+{% endblock %}

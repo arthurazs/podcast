@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+
+{% block content %}
+<form class="form-inline" action="/add/" method="post">
+    <input type="text" class="form-control mr-3" name="podcast" placeholder="https://jovemnerd.com.br/feed-nerdcast/" autofocus>
+    <button type="submit" class="btn btn-primary mr-3">Add</button>
+</form>
+{% endblock %}

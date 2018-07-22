@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+    <head>
+        <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/slate/bootstrap.min.css" rel="stylesheet" integrity="sha384-T5/MPhcu5PtijW3XQzMbwUJshIZS5VzRn+lpMXRN8EnZpxBc8yDYiGkTj7pTWBXQ" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <title>{% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-expand-lg bg-primary">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-rss-square"></i> Podcast
+            </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/list">List</a>
+                <a class="nav-item nav-link" href="/add">Add</a>
+            </div>
+        </div>
+        </nav>
+
+        <br>
+
+        <div class="container-fluid">
+
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <div class="alert alert-danger" role="alert">
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                </div>
+              {% endif %}
+            {% endwith %}
+
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>
